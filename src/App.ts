@@ -12,8 +12,8 @@ class App {
   }
 
   private connectToMongo(): void {
-    const mongoUri =
-      'mongodb+srv://admin:cNNE2WsvUOoIbwwU@cluster0.dukb9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+    const mongoUri = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASSWORD}@cluster0.dukb9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+    // console.log(mongoUri);
     mongoose.connect(mongoUri);
     mongoose.connection.on('connected', () => console.log('Connecté à Atlas'));
     mongoose.connection.on('error', (error) =>
