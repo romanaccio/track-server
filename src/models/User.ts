@@ -40,7 +40,7 @@ userSchema.pre('save', function (next) {
       if (err) {
         next(err);
       }
-      user.password = hash;
+      user.password = hash; // hash also contains the salt with this format: hashed_string.salt
       next();
     });
   });
