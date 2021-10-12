@@ -1,8 +1,11 @@
 import express = require('express');
 import mongoose = require('mongoose');
 require('./models/User'); // ne doit pas être importé car doit être chargé une unique fois dans l'app
+require('./models/Track'); // ne doit pas être importé car doit être chargé une unique fois dans l'app
 import authRoutes = require('./routes/authRoutes');
 import requireAuth = require('./middlewares/requireAuth');
+import trackRoutes = require('./routes/trackRoutes');
+
 class App {
   public express;
   constructor() {
@@ -28,7 +31,8 @@ class App {
 
     this.express.use(express.json());
     this.express.use(express.urlencoded({ extended: true }));
-    this.express.use('/', authRoutes);
+    this.express.use(authRoutes);
+    this.express.use(trackRoutes);
   }
 }
 export default new App().express;
