@@ -6,8 +6,7 @@
       "sourceMap": true,
     },
     "include": [
-      "src/**/*.ts"
-, "src/routes/authRoutes.js"    ],
+      "src/**/*"   ],
     "exclude": [
       "node_modules"
     ]
